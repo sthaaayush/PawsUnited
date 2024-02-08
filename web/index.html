@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 
+    - primary meta tag
+  -->
+  <title>PAWS UNITED</title>
+  <meta name="title" content="PAWS UNITED" />
+  <meta name="description" content="This is an eCommerce html template made by team PAWS UNITED" />
+
+  <!-- 
+    - for login pop up
+   -->
+  <link rel="stylesheet" href="assets/css/login.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- 
+    - favicon
+  -->
+  <!-- <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" /> -->
+  <link rel="icon" href="./pawsunited_logo.png" type="image/png" />
+
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner1.png" />
+</head>
+
+<body id="top">
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+      <button class="nav-toggle-btn" aria-label="toggle manu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" aria-label="true" class="close-icon"></ion-icon>
+      </button>
+
+      <a href="#" class="logo">Paws United</a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="shop.html" class="navbar-link" data-nav-link>Shop</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="appointment.jsp" class="navbar-link" data-nav-link>Appointments</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#footer" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="action-btn" aria-label="Search">
+          <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <button class="action-btn user" aria-label="User" onclick="showModal()">
+          <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+        </button>
+        <!-- The PopUp Modal -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <!-- Login Window -->
+            <div class="login_container" id="login_container">
+              <!-- Sign Up container -->
+              <div class="form-container sign-up">
+                <form method="post" action="loginMap">
+                  <h1>Create Account</h1>
+                  <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                  </div>
+                  <input type="text" placeholder="First Name" name="fname" required />
+                  <input type="text" placeholder="Last Name" name="lname" required />
+                  <input type="email" placeholder="Email" name="uemail" required />
+                  <input type="password" placeholder="Password" name="upassword" required />
+                  <input type="hidden" name="submit" value="signUp" />
+                  <button>Sign Up</button>
+                </form>
+              </div>
+              <!-- Login container -->
+              <div class="form-container sign-in">
+                <form method="post" action="loginMap">
+                  <h1>Sign In</h1>
+                  <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                  </div>
+                  <span>or use your email password</span>
+                  <input type="email" placeholder="Email" name="uemail" />
+                  <input type="password" placeholder="Password" name="upassword" />
+                  <a href="#">Forget Your Password?</a>
+                  <input type="hidden" name="submit" value="signIn" />
+                  <button>Sign In</button>
+                </form>
+              </div>
+              <div class="toggle-container">
+                <div class="toggle">
+                  <!--  Left toggel panel -->
+                  <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>
+                      Enter your personal details to use all of site features
+                    </p>
+                    <button class="hidden" id="login">Sign In</button>
+                  </div>
+                  <!--  Right toggel panel -->
+                  <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>
+                      Register with your personal details to use all of site
+                      features
+                    </p>
+                    <button class="hidden" id="register">Sign Up</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="close" onclick="closeModal()">&times;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero has-bg-image" id="home" aria-label="home"
+        style="background-image: url('./assets/images/hero-banner1.png')">
+        <div class="container">
+          <h1 class="h1 hero-title">
+            <span class="span">Providing Tail-Waggling</span>Good Care
+          </h1>
+        </div>
+      </section>
+
+      <!-- 
+        - #CATEGORY
+      -->
+
+      <section class="section category" aria-label="category">
+        <div class="container">
+          <h2 class="h2 section-title">
+            <span class="span">Top</span> categories
+          </h2>
+
+          <ul class="has-scrollbar">
+            <li class="scrollbar-item">
+              <div class="category-card">
+                <figure class="card-banner img-holder" style="--width: 330; --height: 300">
+                  <img src="./assets/images/category-1.jpg" width="330" height="300" loading="lazy" alt="Cat Food"
+                    class="img-cover" />
+                </figure>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Cat Food</a>
+                </h3>
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="category-card">
+                <figure class="card-banner img-holder" style="--width: 330; --height: 300">
+                  <img src="./assets/images/category-3.jpg" width="330" height="300" loading="lazy" alt="Dog Food"
+                    class="img-cover" />
+                </figure>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Dog Food</a>
+                </h3>
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="category-card">
+                <figure class="card-banner img-holder" style="--width: 330; --height: 300">
+                  <img src="./assets/images/category-2.jpg" width="330" height="300" loading="lazy" alt="Cat Toys"
+                    class="img-cover" />
+                </figure>
+
+                <h3 class="h3">
+                  <a href="#" class="card-title">Dog and Cat Toys</a>
+                </h3>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- 
+        - #PRODUCT
+      -->
+
+      <section class="section product" id="shop" aria-label="product">
+        <div class="container">
+          <h2 class="h2 section-title">
+            <span class="span">Best</span> Foods
+          </h2>
+
+          <ul class="grid-list">
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/droolspup.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Pup Booster - Puppy Weaning Diet for All Breeds" class="img-cover default" />
+                  <img src="./assets/images/droolspup-1.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Pup Booster - Puppy Weaning Diet for All Breeds" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(5)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Drools Pup Booster - Puppy Weaning Diet for All
+                      Breeds</a>
+                  </h3>
+
+                  <data class="card-price" value="550">Rs.550</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/drools.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Puppy Chicken And Egg Dog Food" class="img-cover default" />
+                  <img src="./assets/images/drools-1.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Puppy Chicken And Egg Dog Food" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(3)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Drools Puppy Chicken And Egg Dog Food</a>
+                  </h3>
+
+                  <data class="card-price" value="240">Rs.240</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/droolsadult.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Maintenance Adult Dog Dry Food" class="img-cover default" />
+                  <img src="./assets/images/droolsadult-1.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Maintenance Adult Dog Dry Food" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(4)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Drools Maintenance Adult Dog Dry Food</a>
+                  </h3>
+
+                  <data class="card-price" value="5999">Rs.5999</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/Monge.webp" width="360" height="360" loading="lazy"
+                    alt="Mini Starter Dog Food Chicken Flavour" class="img-cover default" />
+                  <img src="./assets/images/monge-1.webp" width="360" height="360" loading="lazy"
+                    alt="Mini Starter Dog Food Chicken Flavour" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(1)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Mini Starter Dog Food Chicken Flavour</a>
+                  </h3>
+
+                  <data class="card-price" value="1850">Rs.1850</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/reflex.webp" width="360" height="360" loading="lazy"
+                    alt="Reflex Adult Cat Food" class="img-cover default" />
+                  <img src="./assets/images/reflex-1.webp" width="360" height="360" loading="lazy"
+                    alt="Reflex Adult Cat Food" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper gray">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(0)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Reflex Adult Cat Food</a>
+                  </h3>
+
+                  <data class="card-price" value="1799">Rs.1799</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/purpetdog.webp" width="360" height="360" loading="lazy"
+                    alt="PUREPET Chicken And Vegetable Puppy Dry Dog Food" class="img-cover default" />
+                  <img src="./assets/images/purpetdog-1.webp" width="360" height="360" loading="lazy"
+                    alt="PUREPET Chicken And Vegetable Puppy Dry Dog Food" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(1)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">PUREPET Chicken And Vegetable Puppy Dry Dog Food</a>
+                  </h3>
+
+                  <data class="card-price" value="1499">Rs.1499</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/purepet.webp" width="360" height="360" loading="lazy"
+                    alt="Purepet Ocean Fish Adult Dry Cat Food" class="img-cover default" />
+                  <img src="./assets/images/purepet-1.webp" width="360" height="360" loading="lazy"
+                    alt="Purepet Ocean Fish Adult Dry Cat Food" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper gray">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(0)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Purepet Ocean Fish Adult Dry Cat Food</a>
+                  </h3>
+
+                  <data class="card-price" value="1599">Rs.1599</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/droolskitten.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Kitten Dry Cat Food" class="img-cover default" />
+                  <img src="./assets/images/droolskitten-1.webp" width="360" height="360" loading="lazy"
+                    alt="Drools Kitten Dry Cat Food" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(11 )</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Drools Kitten Dry Cat Food</a>
+                  </h3>
+
+                  <data class="card-price" value="350">Rs.350</data>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <h2 class="h2 section-title">
+            <span class="span">Best</span> Toys
+          </h2>
+
+          <ul class="grid-list">
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/dog chew.webp" width="360" height="360" loading="lazy"
+                    alt="Single Ball Style Cotton Rope Pet Toy" class="img-cover default" />
+                  <img src="./assets/images/dog chew.webp" width="360" height="360" loading="lazy"
+                    alt="Single Ball Style Cotton Rope Pet Toy" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(7)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Single Ball Style Cotton Rope Pet Toy</a>
+                  </h3>
+
+                  <data class="card-price" value="250">Rs.250</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/Cat Stick Toy.webp" width="360" height="360" loading="lazy"
+                    alt="Cat Stick Toy" class="img-cover default" />
+                  <img src="./assets/images/Cat Stick Toy.webp" width="360" height="360" loading="lazy"
+                    alt="Cat Stick Toy" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper gray">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(0)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Cat Stick Toy</a>
+                  </h3>
+
+                  <data class="card-price" value="450">Rs.450</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/mouse feather toy.webp" width="360" height="360" loading="lazy"
+                    alt="Mouse Feather toy" class="img-cover default" />
+                  <img src="./assets/images/mouse feather toy.webp" width="360" height="360" loading="lazy"
+                    alt="Mouse Feather Toy" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(2)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Mouse Feather Toy</a>
+                  </h3>
+
+                  <data class="card-price" value="400">Rs.400</data>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+                <div class="card-banner img-holder" style="--width: 360; --height: 360">
+                  <img src="./assets/images/playology.webp" width="360" height="360" loading="lazy"
+                    alt="Plush Squeaky Bone" class="img-cover default" />
+                  <img src="./assets/images/playology-1.webp" width="360" height="360" loading="lazy"
+                    alt="Plush Squeaky Bone" class="img-cover hover" />
+
+                  <button class="card-action-btn" aria-label="add to card" title="Add To Card">
+                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                  </button>
+                </div>
+
+                <div class="card-content">
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    </div>
+
+                    <span class="span">(7)</span>
+                  </div>
+
+                  <h3 class="h3">
+                    <a href="#" class="card-title">Plush Squeaky Bone</a>
+                  </h3>
+
+                  <data class="card-price" value="920">Rs.920</data>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" aria-label="service">
+        <div class="container" id="about">
+          <img src="./assets/images/service-image.png" width="122" height="136" loading="lazy" alt="" class="img" />
+
+          <h2 class="h2 section-title">
+            <span class="span">What your pet needs,</span> when they need it.
+          </h2>
+
+          <ul class="grid-list">
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/service-icon-1.png" width="70" height="70" loading="lazy"
+                    alt="service icon" />
+                </figure>
+
+                <h3 class="h3 card-title">Free Same-Day Delivery</h3>
+
+                <p class="card-text">
+                  Order by 12pm local time to get free delivery on orders
+                  Rs.2000 today.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/service-icon-2.png" width="70" height="70" loading="lazy"
+                    alt="service icon" />
+                </figure>
+
+                <h3 class="h3 card-title">7 Day Return</h3>
+
+                <p class="card-text">25% off your first order.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/service-icon-3.png" width="70" height="70" loading="lazy"
+                    alt="service icon" />
+                </figure>
+
+                <h3 class="h3 card-title">Security payment</h3>
+
+                <p class="card-text">
+                  10% off your online order of Rs.1000+. Available at most
+                  locations.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <figure class="card-icon">
+                  <img src="./assets/images/service-icon-4.png" width="70" height="70" loading="lazy"
+                    alt="service icon" />
+                </figure>
+
+                <h3 class="h3 card-title">24/7 Support</h3>
+
+                <p class="card-text">
+                  Shop online to get orders over Rs.200 shipped fast and free.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="cta has-bg-image" aria-label="cta" style="background-image: url('./assets/images/cta-bg.jpg')">
+        <div class="container">
+          <figure class="cta-banner">
+            <img src="./assets/images/cta-banner.png" width="900" height="660" loading="lazy" alt="cat" class="w-100" />
+          </figure>
+
+            <h2 class="h2 section-title">
+              Caring for Pets, Creating Peace of Mind    Leave your pets in safe hands.
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- 
+        - #BRAND
+      -->
+
+      <section class="section brand" aria-label="brand" id="about">
+        <div class="container">
+          <h2 class="h2 section-title">
+            <span class="span">Popular</span> Brands
+          </h2>
+
+          <ul class="has-scrollbar">
+            <li class="scrollbar-item">
+              <div class="brand-card img-holder" style="--width: 150; --height: 150">
+                <img src="./assets/images/brand-1.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                  class="img-cover" />
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="brand-card img-holder" style="--width: 150; --height: 150">
+                <img src="./assets/images/brand-2.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                  class="img-cover" />
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="brand-card img-holder" style="--width: 150; --height: 150">
+                <img src="./assets/images/brand-3.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                  class="img-cover" />
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="brand-card img-holder" style="--width: 150; --height: 150">
+                <img src="./assets/images/brand-4.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                  class="img-cover" />
+              </div>
+            </li>
+
+            <li class="scrollbar-item">
+              <div class="brand-card img-holder" style="--width: 150; --height: 150">
+                <img src="./assets/images/brand-5.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                  class="img-cover" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer" style="background-image: url('./assets/images/footer-bg.jpg')">
+    <div class="footer-top section" id="footer">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo"><img src="./pawsunited_logo.png" alt=" Paw United Logo" height="300px"
+              width="300px" /></a>
+
+          <p class="footer-text">
+            If you have any question, please contact us at
+            <a href="mailto:[pawsunited]@gmail.com" class="link">pawsunited@gmail.com</a>
+          </p>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+              <a href="tel:9741XXXXXX" class="contact-link">9741-XXX-XXX</a>
+            </li>
+          </ul>
+
+          <ul class="social-list">
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Corporate</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Careers</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Us</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact Us</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">FAQs</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Vendors</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Affiliate Program</a>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Information</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Online Store</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Refund Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Shipping Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Terms of Service</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Track Order</a>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Services</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Grooming</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Positive Dog Training</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Veterinary Services</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Petco Insurance</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Pet Adoption</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Resource Center</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          &copy; 2024 Made with ♥ by
+          <a href="#" class="copyright-link">PawsUnited Team.</a>
+        </p>
+
+        <img src="./assets/images/payment.png" width="397" height="32" loading="lazy" alt="payment method"
+          class="img" />
+      </div>
+    </div>
+  </footer>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+
+</html>

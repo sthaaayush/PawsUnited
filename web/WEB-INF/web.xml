@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>
+            index.html
+        </welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>data_entry</servlet-name>
+        <servlet-class>data_entry</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>data_entry</servlet-name>
+        <url-pattern>/data_pass</url-pattern>
+    </servlet-mapping>
+    <!--LogIn page map-->
+    <servlet>
+        <servlet-name>log</servlet-name>
+        <servlet-class>login_register_handler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>log</servlet-name>
+        <url-pattern>/loginMap</url-pattern>
+    </servlet-mapping>
+</web-app>
