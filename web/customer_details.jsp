@@ -37,7 +37,7 @@
           - preload images
         -->
         <link rel="preload" as="image" href="./assets/images/hero-banner.jpg" />
-        
+
         <!-- 
         - js for qr generator
         -->
@@ -105,7 +105,9 @@
                     Class.forName("com.mysql.jdbc.Driver"); // Load MySQL JDBC driver
                     connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pawsunited", "root", ""); // Replace with your actual database credentials
                     statement = connection.createStatement();
-                    String query = "SELECT Owners.OwnerID, Owners.Name AS OwnerName, Owners.Phone, Dogs.DogID, Dogs.Name AS DogName, Dogs.Breed, Dogs.Created_on, Dogs.Updated_on FROM Owners LEFT JOIN Dogs ON Owners.OwnerID = Dogs.OwnerID ORDER BY Owners.Name";
+                    String query = "SELECT owners.OwnerID, owners.Name AS OwnerName, owners.Phone, dogs.DogID, "
+                            + "dogs.Name AS DogName, dogs.Breed, dogs.Created_on, dogs.Updated_on FROM owners"
+                            + " LEFT JOIN dogs ON owners.OwnerID = dogs.OwnerID ORDER BY owners.Name";
                     resultSet = statement.executeQuery(query);
                     while (resultSet.next()) {
                         String ownerId = resultSet.getString("OwnerID");
@@ -176,9 +178,11 @@
                 }
             </script> 
             <%
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                }
+            } catch (Exception e) {
+            %><h1>
+                <%= e.getMessage() %>
+            </h1><%
                 } finally {
                     // Close database resources
                     if (resultSet != null) {
@@ -383,7 +387,7 @@
         -->
         <script src="./assets/js/script.js" defer></script>
         <script src="./assets/js/test.js" defer></script>
-        
+
         <!-- 
           - ionicon link
         -->

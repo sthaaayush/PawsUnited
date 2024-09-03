@@ -69,7 +69,7 @@
                         </li>
 
                         <li class="navbar-item">
-                            <a href="appointment.html" class="navbar-link" data-nav-link>Appointments</a>
+                            <a href="appointment.jsp" class="navbar-link" data-nav-link>Appointments</a>
                         </li>
 
                         <li class="navbar-item">
