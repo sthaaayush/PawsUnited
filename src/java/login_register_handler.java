@@ -46,7 +46,7 @@ public class login_register_handler extends HttpServlet {
                 //Database connection process
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sxc_GG", "root", "");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/pawsunited", "root", "");
 
                     //Handle request if its for register or signUp
                     if (check_flag.equals("signUp")) {
